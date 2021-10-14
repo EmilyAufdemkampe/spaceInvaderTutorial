@@ -112,7 +112,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        # Checks if keystroke is right or left
+        # Checks for keystroke
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_LEFT: 
@@ -131,21 +131,19 @@ while running:
             if event.key == pygame.K_RETURN and game_over:
                 playerX = 370
                 playerY = 480
-                enemyX = []
-                enemyY = []
                 score_value = 0
 
                 for i in range(num_enemies):
-                    enemyX.append(random.randint(0, 735))
-                    enemyY.append(random.randint(50,150))
+                    enemyX[i] = random.randint(0, 735)
+                    enemyY[i] = random.randint(50,150)
 
                 continue
 
         if event.type == pygame.KEYUP:
-
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 playerX_change = 0
 
+    # Player movement
     playerX += playerX_change
 
     # Sets playerX boundaries
